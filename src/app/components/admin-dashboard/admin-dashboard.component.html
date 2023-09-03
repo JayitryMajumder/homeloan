@@ -1,0 +1,36 @@
+<div style="min-height: 100vh;" class="d-flex flex-column home-heading align-items-center">
+    <div class="justify-content-center align-items-center heading-admin">
+        Admin Dashboard
+    </div>
+    <div class="card my-5">
+        <div class="card-body table-admin">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- <th scope="col"></th> -->
+                        <th scope="col">User ID</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Loan Amount</th>
+                        <th scope="col">Tenure</th>
+                        <th scope="col">Monthly Salary</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of loanReq">
+                        <td>{{ user.userId}}</td>
+                        <td>{{ user.description }}</td>
+                        <td>{{user.amount}}</td>
+                        <td>{{user.tenure}}</td>
+                        <td>{{user.salary}}</td>
+                        <td>{{user.status}}</td>
+                        <td><button class="btn btn-dark"
+                                [disabled]="user.status != 'Pending' " (click)="handleLoanApprove(user.userId, user)">Approve</button>&nbsp;<button
+                                class="btn btn-dark" [disabled]="user.status != 'Pending' ">Decline</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

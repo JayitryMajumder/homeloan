@@ -1,0 +1,26 @@
+<h1>Loan Application Registration Form</h1>
+<form (ngSubmit)="submitForm()" #loanAppForm="ngForm">
+  <h2>Personal Information</h2>
+  <label for="first_name">First Name:</label>
+  <input type="text" id="first_name" name="first_name" [(ngModel)]="loanAppData.first_name" required><br>
+
+  <label for="last_name">Last Name:</label>
+  <input type="text" id="last_name" name="last_name" [(ngModel)]="loanAppData.last_name" required><br>
+
+  <label for="salary">Salary:</label>
+  <input type="text" id="salary" name="salary" [(ngModel)]="loanAppData.salary" required><br>
+
+  <h2>Account Information</h2>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" [(ngModel)]="loanAppData.username" required><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" [(ngModel)]="loanAppData.password" required><br>
+
+  <label for="confirm_password">Confirm Password:</label>
+  <input type="password" id="confirm_password" name="confirm_password" [(ngModel)]="confirmPassword" required><br>
+
+  <label for="mobile_number">Mobile Number:</label>
+  <input type="tel" id="mobile_number" name="mobile_number" [(ngModel)]="loanAppData.mobile_number" required><br>
+  <button class="btn btn-primary" type="submit" [disabled]="!loanAppForm.form.valid || loanAppData.password !== confirmPassword">Submit</button>
+</form>
